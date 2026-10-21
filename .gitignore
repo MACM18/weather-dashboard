@@ -1,0 +1,27 @@
+# Local credentials and environment overrides
+.env
+.env.*
+!.env.example
+control.env
+control.env.*
+!control.env.example
+*.pem
+*.key
+
+# Runtime data and generated output
+postgres/
+frontend/node_modules/
+frontend/dist/
+node_modules/
+dist/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+*.sqlite3
+*.db
+*.log
+.DS_Store
+

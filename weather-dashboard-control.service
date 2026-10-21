@@ -1,0 +1,22 @@
+[Unit]
+Description=Weather dashboard delayed shutdown control helper
+After=network-online.target docker.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=weather-shutdown
+Group=weather-shutdown
+EnvironmentFile=/etc/weather-dashboard/control.env
+ExecStart=/usr/bin/python3 /opt/weather-dashboard/control-helper.py
+Restart=always
+RestartSec=3
+NoNewPrivileges=false
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/weather-dashboard
+
+[Install]
+WantedBy=multi-user.target
+
